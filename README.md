@@ -33,3 +33,17 @@ Generated CSV files are excluded from GitHub using `.gitignore`. The repository 
 
 ## Limitations
 Scraping results may vary depending on Google Play availability, app review volume, network stability, and rate limits.
+
+## Methodology and Date Range
+
+Reviews were collected from the Google Play Store using the `google-play-scraper` package. The scraping script targets three Ethiopian mobile banking applications: Commercial Bank of Ethiopia, Bank of Abyssinia, and Dashen Bank. For each review, the pipeline collects review ID, review text, rating, review date, bank name, and source.
+
+The scraper was configured to collect recent reviews from the Ethiopian Google Play region. The exact date range depends on the availability of reviews returned by Google Play at runtime. After collection, review dates are normalized to `YYYY-MM-DD`.
+
+## Scraping Limitations
+
+Google Play scraping results may vary depending on app review availability, network stability, package response limits, language settings, and regional availability. If fewer reviews are returned for any bank, the limitation is documented and the scraper can be rerun with a larger review count.
+
+## Pipeline Resilience
+
+Basic exception handling was added to the scraping, preprocessing, sentiment analysis, and thematic analysis scripts. The scripts now provide clearer error messages when input files are missing or when a pipeline stage fails.
