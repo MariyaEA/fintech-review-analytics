@@ -47,3 +47,21 @@ Google Play scraping results may vary depending on app review availability, netw
 ## Pipeline Resilience
 
 Basic exception handling was added to the scraping, preprocessing, sentiment analysis, and thematic analysis scripts. The scripts now provide clearer error messages when input files are missing or when a pipeline stage fails.
+
+## PostgreSQL Database Engineering
+
+The project uses PostgreSQL for persistent storage of processed review analytics.
+
+### Schema
+The relational schema includes:
+- `banks` table
+- `reviews` table
+
+### Database Features
+- PRIMARY KEY and FOREIGN KEY relationships
+- sentiment storage
+- thematic analysis storage
+- structured review persistence
+
+### Insertion Workflow
+Processed review data is inserted into PostgreSQL using SQLAlchemy.
